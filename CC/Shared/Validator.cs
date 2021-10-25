@@ -12,7 +12,7 @@ namespace CC.Shared
             switch(piece.Type)
             {
                 case PieceType.Bishop:
-                    if
+                    //if
                     break;
                 case PieceType.Knight:
                     break;
