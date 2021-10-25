@@ -1,0 +1,27 @@
+﻿.row {
+}
+
+.cell {
+    height: 80px;
+    width: 80px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.piece {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+}
+
+.piece.Black {
+    background-color: black;
+}
+
+.piece.White {
+    background-color: white;
+}
+
+.piece.Queen {
+
+}

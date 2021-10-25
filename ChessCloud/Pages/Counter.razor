@@ -9,11 +9,21 @@
 @code {
     private int currentCount = 0;
 
+    //private Data.EngineList chosenEngine = Data.EngineList.StockFish;
+
+    private String nextMove = "";
+
+    //private Data.Engine engine = new Data.Engine();
+
     [Parameter]
     public int IncrementAmount { get; set; } = 1;
 
     private void IncrementCount()
     {
+        //
+        //engine.run();
+        //nextMove = engine.query("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR");
+        //engine.stop();
         currentCount += IncrementAmount;
     }
 }
