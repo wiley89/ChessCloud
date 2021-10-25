@@ -1,0 +1,53 @@
+﻿.row:nth-child(2n+1)  {
+}
+
+.cell {
+    height: 70px;
+    width: 70px;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.piece {
+    height: 50px;
+    width: 50px;
+    border: 1px solid black;
+}
+
+.piece.active {
+    border: 1px solid purple;
+}
+
+.piece.Black {
+    background-color: black;
+    color: white;
+}
+
+.piece.White {
+    background-color: white;
+}
+
+.piece.Queen {
+    content: "Queen";
+}
+
+    .piece.Rook {
+        content: "Rook";
+    }
+
+    .piece.Pawn {
+        content: "Pawn";
+    }
+
+    .piece.Knight {
+        content: ".Knight";
+    }
+
+    .piece.King {
+        content: "King";
+    }
+
+    .piece.Bishop {
+        content: "Bishop";
+    }
+
