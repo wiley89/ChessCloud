@@ -12,8 +12,6 @@ namespace ChessCloud.Data
         public string FEN { get; set; }
 
         private static string initialFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
-        List<Piece> whitePieces = new List<Piece>();
-        List<Piece> blackPieces = new List<Piece>();
 
         public string[,] generateBoard(string fen)
         {

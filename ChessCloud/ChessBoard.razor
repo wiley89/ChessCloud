@@ -6,17 +6,27 @@
     static ChessGame game = new ChessGame();
     string[,] board = game.generateBoard(fen);
 
+    Piece activePiece = null;
+
 
 
     Piece[,] pieceBoard = game.generatePieceBoard(fen);
 
+    public void NewGame ()
+    {
+        string[,] board = game.generateBoard(fen);
+
+
+
+        Piece[,] pieceBoard = game.generatePieceBoard(fen);
+    }
 
 }
 
 <h3>ChessBoard: @pieceBoard[0,0].Color</h3>
 
-<input />
-<button>New Game</button>
+<input placeholder="Input FEN" @bind="fen"/>
+<button @onclick="@NewGame">New Game</button>
 
 @for (int i = 0; i < 8; i++)
 {
@@ -27,10 +37,14 @@
         <div class="cell">
             @if (board[i, j] != "em")
             {
-                //Piece piece = pieceBoard[i, j];
-                <div class="piece  @pieceBoard[i,j].Type @pieceBoard[i,j].Color">
-
-                </div>
+                var piece = pieceBoard[i, j];
+            <div @onclick="() => { activePiece = piece; }" class="piece @piece.Color @(piece == activePiece ? "active": "")">
+                @if (piece == activePiece)
+                        {
+                            <p>Active</p>
+                        }
+                <!--<p class="@piece.Type">Piece Type :)</p>-->
+            </div>
             }
         </div>
         }
