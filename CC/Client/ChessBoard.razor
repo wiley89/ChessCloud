@@ -8,6 +8,7 @@
 
     Piece activePiece = null;
 
+    bool[,] legalMoves;
 
 
     Piece[,] pieceBoard = game.generatePieceBoard(fen);
@@ -34,11 +35,12 @@
         @for (int j = 0; j < 8; j++)
         {
 
-        <div class="cell">
+        <div class="cell @(legalMoves[i, j] ? "legal": "")">
+
             @if (board[i, j] != "em")
             {
                 var piece = pieceBoard[i, j];
-            <div @onclick="() => { activePiece = piece; }" class="piece @piece.Color @(piece == activePiece ? "active": "")">
+            <div @onclick="() => { activePiece = piece; legalMoves = Validator.LegalMoves(board, i, j, board[i, j]); }" class="piece @piece.Color @(piece == activePiece ? "active": "")">
                 @if (piece == activePiece)
                         {
                             <p style="padding: 0px; margin: 0px;">Active</p>
