@@ -1,4 +1,5 @@
 ﻿@using CC.Shared
+@using System.Diagnostics
 @code {
 
     static string fen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
@@ -9,18 +10,18 @@
     Piece activePiece = null;
 
     bool[,] legalMoves = new bool[,] { {false, false, false, false, false, false, false, false },
-                                        {false, false, false, false, false, false, false, false },
-                                        {false, false, false, false, false, false, false, false },
-                                        {false, false, false, false, false, false, false, false },
-                                        {false, false, false, false, false, false, false, false },
-                                        {false, false, false, false, false, false, false, false },
-                                        {false, false, false, false, false, false, false, false },
-                                        {false, false, false, false, false, false, false, false }};
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false }};
 
 
     Piece[,] pieceBoard = game.generatePieceBoard(fen);
 
-    public void NewGame ()
+    public void NewGame()
     {
         string[,] board = game.generateBoard(fen);
 
@@ -31,7 +32,7 @@
 
 <h3>ChessBoard</h3>
 
-<input placeholder="Input FEN" @bind="fen"/>
+<input placeholder="Input FEN" @bind="fen" />
 <button @onclick="@NewGame">New Game</button>
 
 @for (int i = 0; i < 8; i++)
@@ -40,20 +41,20 @@
         @for (int j = 0; j < 8; j++)
         {
 
-        <div class="cell @(legalMoves[i, j] ? "legal": "")">
+            <div class="cell @(legalMoves[i, j] ? "legal": "")">
 
-            @if (board[i, j] != "em")
-            {
-                var piece = pieceBoard[i, j];
-            <div @onclick="() => { activePiece = piece; legalMoves = Validator.LegalMoves(board, i, j, board[i, j]); }" class="piece @piece.Color @(piece == activePiece ? "active": "")">
-                @if (piece == activePiece)
+                @if (board[i, j] != "em")
+                {
+                    var piece = pieceBoard[i, j];
+                    <div @onclick="() => { activePiece = piece; legalMoves = Validator.LegalMoves(board, i, j, board[i, j]); }" class="piece @piece.Color @(piece == activePiece ? "active": "")">
+                        @if (piece == activePiece)
                         {
                             <p style="padding: 0px; margin: 0px;">Active</p>
                         }
-                <p  style="padding: 0px; margin: 0px;">@piece.Type</p>
+                        <p style="padding: 0px; margin: 0px;">@piece.Type</p>
+                    </div>
+                }
             </div>
-            }
-        </div>
         }
     </div>
 }
