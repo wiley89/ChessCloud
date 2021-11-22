@@ -56,10 +56,10 @@ namespace CC.Test
             board = game.generateBoard(fen);
             outputBoard = new bool[,] { {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
-                                    {true, false, false, false, false, false, false, false },
-                                    {true, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
+                                        { true, false, false, false, false, false, false, false },
+                                        { true, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false }};
             Assert.True(DoubleArrayEquals(outputBoard, Validator.LegalMoves(board, 1, 0, "p")));
@@ -72,11 +72,11 @@ namespace CC.Test
             board = game.generateBoard(fen);
             outputBoard = new bool[,] { {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
-                                    {false, false, true, false, true, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
-                                    {false, false, true, false, true, false, false, false },
-                                    {false, true, false, false, false, true, false, false },
-                                        {true, false, false, false, false, false, true, false },
+                                        {false, false,  true, false,  true, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false,  true, false,  true, false, false, false },
+                                        {false,  true, false, false, false,  true, false, false },
+                                        { true, false, false, false, false, false,  true, false },
                                         {false, false, false, false, false, false, false, false }};
             Assert.True(DoubleArrayEquals(outputBoard, Validator.ValidBishopMoves(board, 3, 3, "b")));
         }
@@ -89,10 +89,10 @@ namespace CC.Test
             board = game.generateBoard(fen);
             outputBoard = new bool[,] { {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
-                                        {true, false, true, false, false, false, false, false },
+                                        { true, false,  true, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false }};
             Assert.True(DoubleArrayEquals(outputBoard, Validator.ValidKnightMoves(board, 0, 1, "n")));

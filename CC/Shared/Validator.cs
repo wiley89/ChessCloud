@@ -7,6 +7,7 @@ namespace CC.Shared
 {
     public class Validator
     {
+
         public static bool[,] LegalMoves(String[,] board, int row, int column, String piece)
         {
             switch (Char.ToUpper(piece[0]))
@@ -32,7 +33,17 @@ namespace CC.Shared
         {
             int i = 1;
             bool collision = false;
-            bool[,] retArr = new bool[8, 8];
+            bool[,] retArr = new bool[8, 8] { {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false }};
+
+            
+
             //up right
             while ((row + i < 8) && (column + i < 8) && (collision == false))
             {
@@ -109,7 +120,14 @@ namespace CC.Shared
 
         public static bool[,] ValidKnightMoves(String[,] board, int row, int column, String piece)
         {
-            bool[,] retArr = new bool[8, 8];
+            bool[,] retArr = new bool[8, 8] { {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false }};
             //1
             if ((row + 2 < 8) && (column - 1 > -1)) {
                 if (((row + 2 < 8) && (column - 1 > -1) && (board[row + 2, column - 1].Equals("em")))
@@ -180,7 +198,14 @@ namespace CC.Shared
         {
             int i = 1;
             bool collision = false;
-            bool[,] retArr = new bool[8, 8];
+            bool[,] retArr = new bool[8, 8] { {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false }};
             // right
             while ((row + i < 8) && (collision == false))
             {
@@ -256,7 +281,14 @@ namespace CC.Shared
         }
         public static bool[,] ValidPawnMoves(String[,] board, int row, int column, String piece)
         {
-            bool[,] retArr = new bool[8, 8];
+            bool[,] retArr = new bool[8, 8] { {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false }};
             if (row == 1 && (board[row + 2, column].Equals("em")))
             {
                 retArr[row + 2, column] = true;
@@ -278,7 +310,14 @@ namespace CC.Shared
 
         public static bool[,] ValidKingMoves(String[,] board, int row, int column, String piece)
         {
-            bool[,] retArr = new bool[8, 8];
+            bool[,] retArr = new bool[8, 8] { {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false }};
             //1
             if ((row + 1 < 8) && (column - 1 > -1))
             {
@@ -356,7 +395,14 @@ namespace CC.Shared
 
         public static bool[,] ValidQueenMoves(String[,] board, int row, int column, String piece)
         {
-            bool[,] retArr = new bool[8, 8];
+            bool[,] retArr = new bool[8, 8] { {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                    {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false }};
             bool[,] diagonalValid = ValidBishopMoves(board, row, column, piece);
             bool[,] axialValid = ValidRookMoves(board, row, column, piece);
             for (int x = 0; x < 8; x += 1)
