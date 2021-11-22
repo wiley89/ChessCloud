@@ -111,19 +111,12 @@ namespace CC.Shared
         {
             bool[,] retArr = new bool[8, 8];
             //1
-<<<<<<< HEAD
             if ((row + 2 < 8) && (column - 1 > -1)) {
                 if (((row + 2 < 8) && (column - 1 > -1) && (board[row + 2, column - 1].Equals("em")))
                     || ((row + 2 < 8) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 2, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 2, column - 1][0])))))
                 {
                     retArr[row + 2, column - 1] = true;
                 }
-=======
-            if (((row + 2 < 8) && (column - 1 > -1) && (board[row + 2, column - 1].Equals("em")))
-                || ((row + 2 < 8) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 2, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 2, column - 1][0])))))
-            {
-                retArr[row + 2, column - 1] = true;
->>>>>>> 72a70dbc9321b27370f4e91b63197b1616c3e574
             }
             //2
             if ((row + 1 < 8) && (column - 2 > -1)) {
