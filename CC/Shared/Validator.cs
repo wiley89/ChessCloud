@@ -111,12 +111,19 @@ namespace CC.Shared
         {
             bool[,] retArr = new bool[8, 8];
             //1
+<<<<<<< HEAD
             if ((row + 2 < 8) && (column - 1 > -1)) {
                 if (((row + 2 < 8) && (column - 1 > -1) && (board[row + 2, column - 1].Equals("em")))
                     || ((row + 2 < 8) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 2, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 2, column - 1][0])))))
                 {
                     retArr[row + 2, column - 1] = true;
                 }
+=======
+            if (((row + 2 < 8) && (column - 1 > -1) && (board[row + 2, column - 1].Equals("em")))
+                || ((row + 2 < 8) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 2, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 2, column - 1][0])))))
+            {
+                retArr[row + 2, column - 1] = true;
+>>>>>>> 72a70dbc9321b27370f4e91b63197b1616c3e574
             }
             //2
             if ((row + 1 < 8) && (column - 2 > -1)) {
@@ -280,52 +287,76 @@ namespace CC.Shared
         {
             bool[,] retArr = new bool[8, 8];
             //1
-            if (((row + 1 < 8) && (column - 1 > -1) && (board[row + 1, column - 1].Equals("em")))
-                || ((row + 1 < 8) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column - 1][0])))))
+            if ((row + 1 < 8) && (column - 1 > -1))
             {
-                retArr[row + 1, column - 1] = true;
+                if ((board[row + 1, column - 1].Equals("em"))
+                || ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column - 1][0]))))
+                {
+                    retArr[row + 1, column - 1] = true;
+                }
             }
             //2
-            if (((column + 1 < 8) && (board[row, column + 1].Equals("em")))
-                || (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row, column + 1][0]))))
+            if (column + 1 < 8)
             {
-                retArr[row, column + 1] = true;
+                if (board[row, column + 1].Equals("em")
+                || (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row, column + 1][0]))))
+                {
+                    retArr[row, column + 1] = true;
+                }
             }
             //3
-            if (((column - 1 > -1) && (board[row, column - 1].Equals("em")))
-                || (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row, column - 1][0]))))
+            if (column - 1 > -1)
             {
-                retArr[row, column - 1] = true;
+                if (board[row, column - 1].Equals("em")
+                || ((Char.IsUpper(piece[0]) && Char.IsLower(board[row, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row, column - 1][0]))))
+                {
+                    retArr[row, column - 1] = true;
+                }
             }
             //4
-            if (((row - 1 > -1) && (column - 1 > -1) && (board[row - 1, column - 1].Equals("em")))
-                || ((row - 1 > -1) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column - 1][0])))))
+            if ((row - 1 > -1) && (column - 1 > -1))
             {
-                retArr[row - 1, column - 1] = true;
+                if (board[row - 1, column - 1].Equals("em")
+                || ((row - 1 > -1) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column - 1][0])))))
+                {
+                    retArr[row - 1, column - 1] = true;
+                }
             }
             //5
-            if (((row - 1 > -1) && (board[row - 1, column].Equals("em")))
-                || ((row - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column][0])))))
+            if (row - 1 > -1)
             {
-                retArr[row - 1, column] = true;
+                if (board[row - 1, column].Equals("em")
+                || ((row - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column][0])))))
+                {
+                    retArr[row - 1, column] = true;
+                }
             }
             //6
-            if (((row - 1 > -1) && (column + 1 < 8) && (board[row - 1, column + 1].Equals("em")))
-                || ((row - 1 > -1) && (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column + 1][0])))))
+            if ((row - 1 > -1) && (column + 1 < 8))
             {
-                retArr[row - 1, column + 1] = true;
+                if (board[row - 1, column + 1].Equals("em")
+                || ((row - 1 > -1) && (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column + 1][0])))))
+                {
+                    retArr[row - 1, column + 1] = true;
+                }
             }
             //7
-            if (((row + 1 < 8) && (board[row + 1, column].Equals("em")))
-               || ((row + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column][0])))))
+            if (row + 1 < 8)
             {
-                retArr[row + 1, column] = true;
+                if (board[row + 1, column].Equals("em")
+               || ((row + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column][0])))))
+                {
+                    retArr[row + 1, column] = true;
+                }
             }
             //8
-            if (((row + 1 < 8) && (column + 1 < 8) && (board[row + 1, column + 1].Equals("em")))
-                || ((row + 1 < 8) && (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column + 1][0])))))
+            if ((row + 1 < 8) && (column + 1 < 8))
             {
-                retArr[row + 1, column + 1] = true;
+                if (board[row + 1, column + 1].Equals("em")
+                || ((row + 1 < 8) && (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column + 1][0])))))
+                {
+                    retArr[row + 1, column + 1] = true;
+                }
             }
             return retArr;
         }
@@ -339,7 +370,7 @@ namespace CC.Shared
             {
                 for (int y = 0; y < 8; y += 1)
                 {
-                    if(diagonalValid[x, y] || axialValid[x, y])
+                    if (diagonalValid[x, y] || axialValid[x, y])
                     {
                         retArr[x, y] = true;
                     }
