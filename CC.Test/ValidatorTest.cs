@@ -19,9 +19,9 @@ namespace CC.Test
 
         public bool DoubleArrayEquals(bool[,] arr1, bool[,] arr2)
         {
-            for (int i = 0; i < arr1.GetLength(0); i++)
+            for (int i = 0; i < 8; i++)
             {
-                for (int j = 0; j < arr1.GetLength(1); j++)
+                for (int j = 0; j < 8; j++)
                 {
                     if (arr1[i, j] != arr2[i, j])
                     {
@@ -62,7 +62,7 @@ namespace CC.Test
                                     {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false }};
-            Assert.True(DoubleArrayEquals(outputBoard, Validator.LegalMoves(board, 0, 0, "p")));
+            Assert.True(DoubleArrayEquals(outputBoard, Validator.LegalMoves(board, 1, 0, "p")));
         }
 
         [Fact]

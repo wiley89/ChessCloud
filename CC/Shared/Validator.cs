@@ -24,7 +24,7 @@ namespace CC.Shared
                 case 'K':
                     return ValidBishopMoves(board, row, column, piece);
                 default:
-                    return new bool[7, 7];
+                    return new bool[8, 8];
             }
         }
 
@@ -32,7 +32,7 @@ namespace CC.Shared
         {
             int i = 1;
             bool collision = false;
-            bool[,] retArr = new bool[7, 7];
+            bool[,] retArr = new bool[8, 8];
             //up right
             while ((row + i < 8) && (column + i < 8) && (collision == false))
             {
@@ -109,54 +109,69 @@ namespace CC.Shared
 
         public static bool[,] ValidKnightMoves(String[,] board, int row, int column, String piece)
         {
-            bool[,] retArr = new bool[7, 7];
+            bool[,] retArr = new bool[8, 8];
             //1
-            if (((row + 2 < 8) && (column - 1 > -1) && (board[row + 2, column - 1].Equals("em"))) 
-                || ((row + 2 < 8) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 2, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 2, column - 1][0])))))
-            {
-                retArr[row + 2, column - 1] = true;
+            if ((row + 2 < 8) && (column - 1 > -1)) {
+                if (((row + 2 < 8) && (column - 1 > -1) && (board[row + 2, column - 1].Equals("em")))
+                    || ((row + 2 < 8) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 2, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 2, column - 1][0])))))
+                {
+                    retArr[row + 2, column - 1] = true;
+                }
             }
             //2
-            if (((row + 1 < 8) && (column - 2 > -1) && (board[row + 1, column - 2].Equals("em")))
-                || ((row + 1 < 8) && (column - 2 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column - 2][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column - 2][0])))))
-            {
-                retArr[row + 1, column - 2] = true;
+            if ((row + 1 < 8) && (column - 2 > -1)) {
+                if (((row + 1 < 8) && (column - 2 > -1) && (board[row + 1, column - 2].Equals("em")))
+                    || ((row + 1 < 8) && (column - 2 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column - 2][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column - 2][0])))))
+                {
+                    retArr[row + 1, column - 2] = true;
+                }
             }
             //3
-            if (((row - 1 > -1) && (column - 2 > -1) && (board[row - 1, column - 2].Equals("em")))
-                || ((row - 1 > -1) && (column - 2 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column - 2][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column - 2][0])))))
-            {
-                retArr[row - 1, column - 2] = true;
+            if ((row - 1 > -1) && (column - 2 > -1)) {
+                if (((row - 1 > -1) && (column - 2 > -1) && (board[row - 1, column - 2].Equals("em")))
+                    || ((row - 1 > -1) && (column - 2 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column - 2][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column - 2][0])))))
+                {
+                    retArr[row - 1, column - 2] = true;
+                }
             }
             //4
-            if (((row - 2 > -1) && (column - 1 > -1) && (board[row - 2, column - 1].Equals("em")))
-                || ((row - 2 > -1) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 2, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 2, column - 1][0])))))
-            {
-                retArr[row - 2, column - 1] = true;
+            if ((row - 2 > -1) && (column - 1 > -1)) {
+                if (board[row - 2, column - 1].Equals("em") || ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 2, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 2, column - 1][0]))))
+                {
+                    retArr[row - 2, column - 1] = true;
+                }
             }
             //5
-            if (((row - 2 > -1) && (column + 1 < 8) && (board[row - 2, column + 1].Equals("em")))
-                || ((row - 2 > -1) && (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 2, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 2, column + 1][0])))))
-            {
-                retArr[row - 2, column + 1] = true;
+            if ((row - 2 > -1) && (column + 1 < 8)) {
+                if (((row - 2 > -1) && (column + 1 < 8) && (board[row - 2, column + 1].Equals("em")))
+                    || ((row - 2 > -1) && (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 2, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 2, column + 1][0])))))
+                {
+                    retArr[row - 2, column + 1] = true;
+                }
             }
             //6
-            if (((row - 1 > -1) && (column + 2 < 8) && (board[row - 1, column + 2].Equals("em")))
-                || ((row - 1 > -1) && (column + 2 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column + 2][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column + 2][0])))))
-            {
-                retArr[row - 1, column + 2] = true;
+            if ((row - 1 > -1) && (column + 2 < 8)) {
+                if (((row - 1 > -1) && (column + 2 < 8) && (board[row - 1, column + 2].Equals("em")))
+                    || ((row - 1 > -1) && (column + 2 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row - 1, column + 2][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row - 1, column + 2][0])))))
+                {
+                    retArr[row - 1, column + 2] = true;
+                }
             }
             //7
-            if (((row + 1 < 8) && (column + 2 < 8) && (board[row + 1, column + 2].Equals("em")))
-               || ((row + 1 < 8) && (column + 2 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column + 2][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column + 2][0])))))
-            {
-                retArr[row + 1, column + 2] = true;
+            if ((row + 1 < 8) && (column + 2 < 8)) {
+                if (((row + 1 < 8) && (column + 2 < 8) && (board[row + 1, column + 2].Equals("em")))
+                   || ((row + 1 < 8) && (column + 2 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column + 2][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column + 2][0])))))
+                {
+                    retArr[row + 1, column + 2] = true;
+                }
             }
             //8
-            if (((row + 2 < 8) && (column + 1 < 8) && (board[row + 2, column + 1].Equals("em")))
-                || ((row + 2 < 8) && (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 2, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 2, column + 1][0])))))
-            {
-                retArr[row + 2, column + 1] = true;
+            if ((row + 2 < 8) && (column + 1 < 8)) {
+                if (((row + 2 < 8) && (column + 1 < 8) && (board[row + 2, column + 1].Equals("em")))
+                    || ((row + 2 < 8) && (column + 1 < 8) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 2, column + 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 2, column + 1][0])))))
+                {
+                    retArr[row + 2, column + 1] = true;
+                }
             }
             return retArr;
         }
@@ -165,7 +180,7 @@ namespace CC.Shared
         {
             int i = 1;
             bool collision = false;
-            bool[,] retArr = new bool[7, 7];
+            bool[,] retArr = new bool[8, 8];
             // right
             while ((row + i < 8) && (collision == false))
             {
@@ -241,7 +256,7 @@ namespace CC.Shared
         }
         public static bool[,] ValidPawnMoves(String[,] board, int row, int column, String piece)
         {
-            bool[,] retArr = new bool[7, 7];
+            bool[,] retArr = new bool[8, 8];
             if (row == 1 && (board[row + 2, column].Equals("em")))
             {
                 retArr[row + 2, column] = true;
@@ -263,7 +278,7 @@ namespace CC.Shared
 
         public static bool[,] ValidKingMoves(String[,] board, int row, int column, String piece)
         {
-            bool[,] retArr = new bool[7, 7];
+            bool[,] retArr = new bool[8, 8];
             //1
             if (((row + 1 < 8) && (column - 1 > -1) && (board[row + 1, column - 1].Equals("em")))
                 || ((row + 1 < 8) && (column - 1 > -1) && ((Char.IsUpper(piece[0]) && Char.IsLower(board[row + 1, column - 1][0])) || (Char.IsLower(piece[0]) && Char.IsUpper(board[row + 1, column - 1][0])))))
@@ -317,7 +332,7 @@ namespace CC.Shared
 
         public static bool[,] ValidQueenMoves(String[,] board, int row, int column, String piece)
         {
-            bool[,] retArr = new bool[7, 7];
+            bool[,] retArr = new bool[8, 8];
             bool[,] diagonalValid = ValidBishopMoves(board, row, column, piece);
             bool[,] axialValid = ValidRookMoves(board, row, column, piece);
             for (int x = 0; x < 8; x += 1)
