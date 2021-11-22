@@ -8,7 +8,14 @@
 
     Piece activePiece = null;
 
-    bool[,] legalMoves;
+    bool[,] legalMoves = new bool[,] { {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false },
+                                        {false, false, false, false, false, false, false, false }};
 
 
     Piece[,] pieceBoard = game.generatePieceBoard(fen);
@@ -16,8 +23,6 @@
     public void NewGame ()
     {
         string[,] board = game.generateBoard(fen);
-
-
 
         Piece[,] pieceBoard = game.generatePieceBoard(fen);
     }

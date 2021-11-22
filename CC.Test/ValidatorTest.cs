@@ -78,7 +78,7 @@ namespace CC.Test
                                     {false, true, false, false, false, true, false, false },
                                         {true, false, false, false, false, false, true, false },
                                         {false, false, false, false, false, false, false, false }};
-            Assert.True(DoubleArrayEquals(outputBoard, Validator.LegalBishopMoves(board, 3, 3, "b")));
+            Assert.True(DoubleArrayEquals(outputBoard, Validator.ValidBishopMoves(board, 3, 3, "b")));
         }
 
 
@@ -95,7 +95,7 @@ namespace CC.Test
                                     {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false }};
-            Assert.True(DoubleArrayEquals(outputBoard, Validator.LegaKnightlMoves(board, 0, 1, "n")));
+            Assert.True(DoubleArrayEquals(outputBoard, Validator.ValidKnightMoves(board, 0, 1, "n")));
         }
 
         [Fact]
@@ -111,7 +111,7 @@ namespace CC.Test
                                         {true, false, false, false, false, false, false, false },
                                         {true, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false }};
-            Assert.True(DoubleArrayEquals(outputBoard, Validator.LegalRookMoves(board, 0, 0, "r")));
+            Assert.True(DoubleArrayEquals(outputBoard, Validator.ValidRookMoves(board, 0, 0, "r")));
         }
 
         [Fact]
@@ -122,12 +122,12 @@ namespace CC.Test
             outputBoard = new bool[,] { {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
                                         {false, false, true, true, true, false, false, false },
-                                        {true, true, true, x, true, true, true, true },
+                                        {true, true, true, false, true, true, true, true },
                                         {false, false, true, true, true, false, false, false },
                                         {false, true, false, true, false, true, false, false },
                                         {true, false, false, true, false, false, true, false },
                                         {false, false, false, false, false, false, false, false }};
-            Assert.True(DoubleArrayEquals(outputBoard, Validator.LegalQueenMoves(board, 0, 0, "q")));
+            Assert.True(DoubleArrayEquals(outputBoard, Validator.ValidQueenMoves(board, 0, 0, "q")));
         }
 
         [Fact]
@@ -143,7 +143,7 @@ namespace CC.Test
                                     {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false }};
-            Assert.True(DoubleArrayEquals(outputBoard, Validator.LegalKingMoves(board, 3, 3, "k")));
+            Assert.True(DoubleArrayEquals(outputBoard, Validator.ValidKingMoves(board, 3, 3, "k")));
         }
 
         [Fact]
@@ -159,7 +159,7 @@ namespace CC.Test
                                     {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false },
                                         {false, false, false, false, false, false, false, false }};
-            Assert.True(DoubleArrayEquals(outputBoard, Validator.LegalPawnMoves(board, 1, 1, "p")));
+            Assert.True(DoubleArrayEquals(outputBoard, Validator.ValidPawnMoves(board, 1, 1, "p")));
         }
     }
 }
