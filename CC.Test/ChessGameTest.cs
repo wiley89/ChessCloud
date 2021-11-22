@@ -41,7 +41,7 @@ namespace CC.Test
                                               {"em", "em", "em", "em", "em", "em", "em", "em"},
                                               {"P","P", "P", "P", "P", "P", "P", "P"},
                                               {"R","N", "B", "Q", "K", "B", "N", "R"} };
-            Assert.True(DoubleArrayEquals(board, game.generateFen(fen)));
+            Assert.True(DoubleArrayEquals(board, game.generateBoard(fen)));
         }
 
         [Fact]

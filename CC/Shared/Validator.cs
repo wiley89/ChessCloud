@@ -315,7 +315,7 @@ namespace CC.Shared
             return retArr;
         }
 
-        public bool[,] ValidQueenMoves(String[,] board, int row, int column, String piece)
+        public static bool[,] ValidQueenMoves(String[,] board, int row, int column, String piece)
         {
             bool[,] retArr = new bool[7, 7];
             bool[,] diagonalValid = ValidBishopMoves(board, row, column, piece);
