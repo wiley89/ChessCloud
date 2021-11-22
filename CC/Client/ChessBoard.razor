@@ -23,7 +23,7 @@
 
 }
 
-<h3>ChessBoard: @pieceBoard[0,0].Color</h3>
+<h3>ChessBoard</h3>
 
 <input placeholder="Input FEN" @bind="fen"/>
 <button @onclick="@NewGame">New Game</button>
@@ -41,9 +41,9 @@
             <div @onclick="() => { activePiece = piece; }" class="piece @piece.Color @(piece == activePiece ? "active": "")">
                 @if (piece == activePiece)
                         {
-                            <p>Active</p>
+                            <p style="padding: 0px; margin: 0px;">Active</p>
                         }
-                <p>@piece.Type</p>
+                <p  style="padding: 0px; margin: 0px;">@piece.Type</p>
             </div>
             }
         </div>

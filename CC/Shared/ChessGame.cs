@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -13,6 +14,39 @@ namespace CC.Shared
 
         private static string initialFen = "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1";
 
+        public string generateFen(string[,] board)
+        {
+            StringBuilder builder = new StringBuilder();
+            int emptySpaces = 0;
+            for (int i = 0; i < 8; i++)
+            {
+                for (int j = 0; j < 8; j++)
+                {
+                    if (board[i, j] == "em")
+                    {
+                        emptySpaces++;
+                    } else
+                    {
+                        if (emptySpaces > 0)
+                        {
+                            builder.Append(emptySpaces);
+                            emptySpaces = 0;
+                        }
+                        builder.Append(board[i, j]);
+                    }
+                }
+                if (emptySpaces > 0)
+                {
+                    builder.Append(emptySpaces);
+                    emptySpaces = 0;
+                }
+
+                if (i != 8)
+                    builder.Append("/");
+            }
+            return builder.ToString();
+        }
+
         public string[,] generateBoard(string fen)
         {
             string[,] board = new string[8, 8];
@@ -25,9 +59,10 @@ namespace CC.Shared
             {
                 currentRow = row[i];
                 column = 0;
-                if (column < 8)
+                
+                foreach (char c in currentRow)
                 {
-                    foreach (char c in currentRow)
+                    if (column < 8)
                     {
                         if (Char.IsDigit(c))
                         {
@@ -37,20 +72,14 @@ namespace CC.Shared
                                 column++;
                             }
                         }
-                        else if (Char.IsUpper(c))
-                        {
-                            board[i, column] = "w" + Char.ToLower(c);
-                            column++;
-                        }
                         else
                         {
-                            board[i, column] = "b" + c;
+                            board[i, column] = "" + c;
                             column++;
                         }
                     }
                 }
             }
-            //string[,] newBoard = new string[8, 8];
             return board;
         }
 
@@ -67,9 +96,9 @@ namespace CC.Shared
                     {
                         pieceBoard[i, j] = null;
                     }
-                    else if (board[i, j][0] == 'w')
+                    else if (Char.IsUpper(board[i, j][0]))
                     {
-                        switch (board[i, j][1])
+                        switch (Char.ToLower(board[i, j][0]))
                         {
                             case 'r':
                                 pieceBoard[i, j] = new Piece()
@@ -131,7 +160,7 @@ namespace CC.Shared
                     }
                     else
                     {
-                        switch (board[i, j][1])
+                        switch (board[i, j][0])
                         {
                             case 'r':
                                 pieceBoard[i, j] = new Piece()
