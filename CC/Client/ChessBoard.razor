@@ -10,13 +10,13 @@
     Piece activePiece = null;
 
     bool[,] legalMoves = new bool[,] { {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false },
-                                    {false, false, false, false, false, false, false, false }};
+                                {false, false, false, false, false, false, false, false },
+                                {false, false, false, false, false, false, false, false },
+                                {false, false, false, false, false, false, false, false },
+                                {false, false, false, false, false, false, false, false },
+                                {false, false, false, false, false, false, false, false },
+                                {false, false, false, false, false, false, false, false },
+                                {false, false, false, false, false, false, false, false }};
 
 
     Piece[,] pieceBoard = game.generatePieceBoard(fen);
@@ -28,6 +28,10 @@
         Piece[,] pieceBoard = game.generatePieceBoard(fen);
     }
 
+    public void GiveMoves(String[,] board, int row, int column, String piece)
+    {
+        legalMoves = Validator.LegalMoves(board, row, column, piece);
+    }
 }
 
 <h3>ChessBoard</h3>
@@ -46,7 +50,7 @@
                 @if (board[i, j] != "em")
                 {
                     var piece = pieceBoard[i, j];
-                    <div @onclick="() => { activePiece = piece; legalMoves = Validator.LegalMoves(board, i, j, board[i, j]); }" class="piece @piece.Color @(piece == activePiece ? "active": "")">
+                    <div @onclick="() => { activePiece = piece; GiveMoves(board, i, j, board[i, j]);}" class="piece @piece.Color @(piece == activePiece ? "active": "")">
                         @if (piece == activePiece)
                         {
                             <p style="padding: 0px; margin: 0px;">Active</p>
